@@ -36,10 +36,39 @@ let myObj = {
 
 //JavaScript me function ko b ek variables ki tara treat kiya ja sakta hai
 const myfunction = function (){
-    console.log("Hello World...!")
+    //console.log("Hello World...!")
 }
 myfunction()
 
 // Kisi b variable ka datatype pata karny k liy (typeof) key word ka use kiya jata hai, jesy k
 
-console.log(typeof bigNumber)
+//console.log(typeof bigNumber)
+
+
+// ***********************************************************
+
+// Stack memory is use in (Primitive datatypes)
+//Heap memory is use in (Non Primitive datatypes)
+
+// jab stack memory use hoti hai to jo b variable decliar hota hai us ki copy milti hai or jab koi heap memory use hoti hai to us ko Reference milti hai
+
+let myName = "Samuel" //this veriable is save in stack memory
+
+let anothername = myName;
+
+anothername = "Sialtiel Yaqoob"
+//console.log(myName)
+//console.log(anothername)
+
+let userOne = {
+    name: "Asif",
+    email: "asif@gmail.com",
+    phone: "03075941955"
+}
+
+let userTwo = userOne
+
+userTwo.email = "sami@google.com"
+console.log(userOne.email)
+console.log(userTwo.email)
+

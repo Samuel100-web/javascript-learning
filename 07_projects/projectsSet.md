@@ -341,3 +341,93 @@ button:hover {
 }
 ```
 
+# Project 3 Completed
+
+```JavaScript Code
+const clock = document.getElementById('clock')
+
+
+
+setInterval(function(){
+    let date = new Date()
+    // console.log(date.toLocaleTimeString())
+    clock.innerHTML = date.toLocaleTimeString()
+}, 1000)
+```
+
+```HTML Code
+<nav>
+        <a href="/" aria-current="page">Home</a>
+        <a href="https://github.com/Samuel100-web" target="_blank">Sam Github</a>
+    </nav>
+    <div class="container">
+        <div id="banner"><span>Your Local Time</span></div>
+        <div id="clock"></div>
+    </div>
+    <script src="digitalClock.js"></script>
+```
+
+```CSS Code
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+nav a {
+    color: #61dafb;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #21a1f1;
+}
+
+.container {
+    text-align: center;
+}
+
+#banner {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#clock {
+    font-size: 60px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 1.5s infinite alternate;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 126, 95, 0.5);
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 126, 95, 0.7), 0 0 10px rgba(255, 126, 95, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 126, 95, 1), 0 0 30px rgba(255, 126, 95, 0.7);
+    }
+}
+```
+

@@ -164,3 +164,180 @@ nav a:hover {
 }
 ```
 
+## Project 2 Completed
+
+```JavaScript Code
+const form = document.querySelector('form')
+
+//this usecase will give you empty value so please not use out side the function
+
+// const height = parseInt(document.querySelector("#height").value)
+// const weight = parseInt(document.querySelector("#weight").value)
+
+form.addEventListener('submit', function(e){
+    e.preventDefault()
+    const height = parseInt(document.querySelector("#height").value)
+    const weight = parseInt(document.querySelector("#weight").value)
+    const results = document.querySelector("#results")
+
+    if(height === '' || height < 0 || isNaN(height))
+    {
+        results.innerHTML = `Plese give a valid Height ${height}`
+    }
+    else if(weight === '' || weight < 0 || isNaN(weight))
+    {
+        results.innerHTML = `Plese give a valid Weight ${weight}`
+    }else
+    {
+        const bmi = (weight/ ((height * height)/10000)).toFixed(2)
+        //show the result
+        results.innerHTML = `<span>${bmi}</span>`
+    }
+})
+```
+
+```HTML Code
+<body>
+    <nav>
+        <a href="/" aria-current="page">Home</a>
+        <a href="https://github.com/Samuel100-web" target="_blank">Sam Github</a>
+    </nav>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <p><label>Height in CM:</label><input type="text" id="height"></p>
+            <p><label>Weight in KG:</label><input type="text" id="weight"></p>
+            <button>Calculate</button>
+            <div id="results"></div>
+            <div id="weight-guide">
+                <h3>BMI Weight Guide</h3>
+                <p>Under Weight = Less than 18.6</p>
+                <p>Normal Range = 18.6 and 24.9</p>
+                <p>Over Weight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="heightWeightCalculator.js"></>
+```
+
+```CSS Code
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation styles */
+nav {
+    background-color:rgb(198, 74, 226);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: black;
+}
+
+nav a:hover {
+    background-color: white;
+    color: black
+}
+
+/* Container styles */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: purple;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: white;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: white;
+    color: black
+}
+
+/* Results and weight guide styles */
+#results {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+#weight-guide {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+}
+
+#weight-guide h3 {
+    margin-bottom: 10px;
+    color: #2196F3;
+}
+
+#weight-guide p {
+    margin: 5px 0;
+}
+```
+

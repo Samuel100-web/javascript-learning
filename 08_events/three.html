@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Mr Samuel Javascript Developer</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+
+    <script>
+        // Declare a variable to hold the interval ID
+        let intervalId;
+    
+        // Function to start the interval
+        const startInterval = () => {
+          // Check if the interval is already running
+          if (!intervalId) {
+            intervalId = setInterval(() => {
+              console.log("Interval is running...", Date.now().toLocaleString());
+            }, 1000);
+            console.log("Interval started");
+          } else {
+            console.log("Interval is already running");
+          }
+        };
+    
+        // Function to stop the interval
+        const stopInterval = () => {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null; // Reset the intervalId to indicate that the interval is stopped
+            console.log("Interval stopped");
+          } else {
+            console.log("No interval to stop");
+          }
+        };
+        // Add event listeners to the buttons
+        document.querySelector("#start").addEventListener("click", startInterval);
+        document.querySelector("#stop").addEventListener("click", stopInterval);
+      </script>
+  </body>
+  
+</html>

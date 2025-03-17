@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout, setInterval Method</title>
+</head>
+<body>
+    <h1>Mr. Samuel Yaqoob Javascript, ReactJs and .NET Core Developer with SQL Database</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    // setTimeout(function(){
+    //     console.log('Samuel Yaqoob')
+    // }, 2000)
+    const sialtiel = function(){
+        console.log('Sialtiel')
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = 'Best javaScript Learning method with Mr. Samuel Yaqoob'
+    }
+    const changeMe = setTimeout(changeText, 2000)
+    
+   document.querySelector('#stop').addEventListener('click', function(){
+    clearTimeout(changeMe)
+    console.log("STOPED HERE")
+   })
+    
+</script>
+</html>

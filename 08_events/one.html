@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#images {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Space between images */
+}
+
+#images li {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#images li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#images img {
+    width: 200px; /* Fixed width */
+    height: 150px; /* Fixed height to maintain rectangular shape */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block; /* Removes bottom space */
+}
+
+#google {
+    text-align: center;
+    margin-top: 20px;
+    color: #4285F4; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+#google:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+    </style>
+</head>
+<body>
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" id="Image1" src="images/image2.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image2" src="images/image3.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image3" src="images/image4.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image4" src="images/image5.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image5" src="images/image6.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image6" src="images/image7.jpg" alt="">
+            </li>
+            <li>
+                <img width="200px" id="Image7" src="images/image9.jpg" alt="">
+            </li>          
+                                  
+        </ul>
+        <a href="https://google.com" id="google">Google</a>
+    </div>
+</body>
+<script>
+    // ye aproch dekhny me boht achi hai lekan ham id par onclick event laga rahy hain lekan iss me problem ho sakti hai, iss liy hamy evernt listiner use karny chahiy q k event listener sirf onclick functionnality hee nai balky propogation ki ability dety hain. onclick hamy feature kam deta hain.
+    //Event Propogation ka 2 context hoty hain ek bubling or ek hota hai Event Capturing
+
+    //types, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, ClientX, clientY, screenX, screenY, altKey, ctrlkey, shiftKey, keyCode
+
+
+/*
+   document.getElementById('Image7').onclick = function(){
+    alert("Image7 clicked")
+   }
+
+document.getElementById('images').addEventListener('click', function(e){
+   console.log('clicked in side the ul')
+}, false)
+
+document.getElementById('Image7').addEventListener('click', function(e){
+   console.log('clicked Image 7')
+   //e.stopPropagation() // stopPropagation se Event ka bubal track ho kar uper ki tarf nahi jay ga
+}, false)
+
+document.getElementById('google').addEventListener('click', function(e){
+e.preventDefault()
+e.stopPropagation()
+console.log('google clicked')
+
+ }, false)
+
+
+ document.querySelector("#images").addEventListener('click', function(e){
+     //console.log(e.target.parentNode);
+     let removeIt = e.target.parentNode
+    removeIt.remove() //first approch
+ });
+*/
+
+    document.querySelector("#images").addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove() //first approch
+        }
+    })
+
+    
+    //removeIt.parentNode.removeChaild(removeIt) // second approch It's confused approch
+
+</script>
+
+<!-- JavaScript k tamam Events Secventionaly run hoty hain, javascript ek secunce se run doti hai -->
+</html>
